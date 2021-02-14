@@ -367,6 +367,9 @@ def post_A_answer(jwt_payload,word_id):
       'word_id': word_id
   }),200
 
+#---------------------------------------------------------------#
+'''Endpoints for Admin user'''
+#---------------------------------------------------------------#
 #/users
 # endpoint to get all users. Permission needed
 @app.route('/users', methods=['GET'])
@@ -449,6 +452,10 @@ def delete_a_user(jwt_payload, user_id):
   }),200
 
 
+#---------------------------------------------------------------#
+'''Error Handling'''
+#---------------------------------------------------------------#
+
 @app.errorhandler(400)
 def bad_request(error):
   return jsonify({
@@ -489,13 +496,11 @@ def process_AuthError(error):
 
   return response
 
+
+#---------------------------------------------------------------#
+'''Run the APP'''
+#---------------------------------------------------------------#
+
 # Default port:
 if __name__ == '__main__':  
     app.run(debug=True)
-
-# Or specify port manually:
-'''
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-'''

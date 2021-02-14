@@ -39,3 +39,7 @@ Thumbs.db
 env_dict/
 __pycache__/
 .vscode
+backup/
+dockerfile
+.dockerignore
+

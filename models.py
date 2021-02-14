@@ -2,12 +2,12 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
 
-# local database setting
+# LOCAL database setting
 database_name = "dict"
 username = 'postgres'
 password = '123456'
 
-# Heroku database
+# The production database path is stored in HEROKU environment
 if 'DATABASE_URL' in os.environ:
   database_path = os.environ['DATABASE_URL']
 else:
@@ -28,8 +28,12 @@ def setup_db(app, database_path=database_path):
   db.create_all()
 
 class Dictionary(db.Model):
-  __tablename__ = 'Dictionary'
+  '''
+  Table to hold the words.
+  '''
 
+  ## Define table name and columns##
+  __tablename__ = 'Dictionary'
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.String, nullable=False)
   # Define the question and answer
@@ -41,7 +45,8 @@ class Dictionary(db.Model):
   category_id = db.Column(db.Integer, db.ForeignKey('Categories.id'), nullable=False)
   # Back_ref
   answer_record = db.relationship('AnswerRecords', backref='Dictionary',lazy='dynamic') 
-
+  
+  ## Define methods##
   def __init__(self, user_id, swedishword, category_id,
               meaninginenglish = None, 
               meaninginswedish = None,
@@ -79,12 +84,18 @@ class Dictionary(db.Model):
     return f'<Word {self.id} : {self.swedishword}>'
 
 class Categories(db.Model):
+  '''
+  Table to hold the categories of words.
+  '''
+
+  ## Define table name and columns##
   __tablename__ = 'Categories'
   id = db.Column(db.Integer, primary_key=True)
   category = db.Column(db.String, nullable=False)
   # Backref
   Dictionary = db.relationship('Dictionary', backref='Categories', lazy='dynamic')
   
+  ## Define methods##
   def __init__(self, category):
     self.category = category
   
@@ -110,13 +121,19 @@ class Categories(db.Model):
   
 
 class AnswerRecords(db.Model):
+  '''
+  Table to hold the answer records.
+  '''
+
+  ## Define table name and columns##
   __tablename__ = 'AnswerRecords'
   id = db.Column(db.Integer, primary_key=True)
   time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
   dict_id = db.Column(db.Integer, db.ForeignKey('Dictionary.id'), nullable=False)
   user_id = db.Column(db.String, nullable=False)
   result = db.Column(db.Boolean, nullable=False)
-
+  
+  ## define methods## 
   def __init__(self, dict_id, user_id, result,
                time=None):
     self.dict_id = dict_id

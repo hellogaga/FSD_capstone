@@ -3,11 +3,20 @@ from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+import os
 
-
-AUTH0_DOMAIN = 'hellogaga.eu.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'dictionary'
+# Get verification
+if 'IF_HEROKU' in os.environ:
+  # if HEROKU environment. Get the environmeent varialble
+  # from HEROKU environment
+  AUTH0_DOMAIN = os.environ['IF_HEROKU']
+  ALGORITHMS = [os.environ['ALGORITHMS']]
+  API_AUDIENCE = os.environ['API_AUDIENCE']
+else:
+  # This is for LOCAL use. 
+  AUTH0_DOMAIN = 'hellogaga.eu.auth0.com'
+  ALGORITHMS = ['RS256']
+  API_AUDIENCE = 'dictionary'
 
 ## AuthError Exception
 '''
@@ -21,7 +30,6 @@ class AuthError(Exception):
 
 
 ## Auth Header
-
 def get_token_auth_header():
   '''
   Obtains the Access Token from the Authorization Header
