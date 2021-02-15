@@ -121,8 +121,9 @@ Overall:
 2. Install all the dependencies according to the instructions before. 
 3. git clone this repo to your local folder using `https://github.com/hellogaga/FSD_capstone.git`
 4. Navigate to **setup.bat** and revise **all environment varialbes** section with your own.
-5. Login to your PostgreSQL through `psql -U yourusername` and build a local database named **dict** through the following in the computer console `CREATE DATABASE dict;`
-6. Navigate to the local folder and run the following commands. They will initiate the required tables in the application. 
+5. run `setup.bat` in cmd prompt. 
+6. Login to your PostgreSQL through `psql -U yourusername` and build a local database named **dict** through the following in the computer console `CREATE DATABASE dict;`
+7. Navigate to the local folder and run the following commands. They will initiate the required tables in the application. 
 ```sh
 python manage.py db init
 python manage.py db migrate
