@@ -8,9 +8,13 @@ GagaDict(or Gaga Dictionary) is a web-based personal dictionary system. It was d
 * register answers of the users to the generated questions. 
 * store the answer records. 
 
+## Motivation
+As a native Chinese speaker, I have to learn English from a young age. However, I, together with other many young language learners, found it difficult to remember all the words. I have to remember several thousands to be able to use the language fluently. The method that I use to remember words is to read through a "dictionary" again and again. I found it was ineffective. The reason is very simple. Some words are easy to remember and some are not. So a workflow like: remember--review--remember-review must be used. This app helps the process, you can use it to register words which you are not familiar with and generate quizzes based on the stored data. It will also record if the quiz answers are correct. The user can use the application to further check the answer records. If a word happens to have many wrong answers, the word must be remembered with some extra efforts. 
+
 
 ## Table of contents
   - [Overview](#Overview)
+  - [Motivation](#Motivation)
   - [Table of contents](#table-of-contents)
   - [Teck Stack](#Tech-Stack-(Dependencies))
   - [Project Structure](#project-structure)
@@ -71,12 +75,12 @@ The application is hosted at `https://gagadict.herokuapp.com`
 ### Example user TOKEN
 Normal User:
 ```
-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlozRjRBeDlsUWRuYms0ZV9fdDBrMSJ9.eyJpc3MiOiJodHRwczovL2hlbGxvZ2FnYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZmODkwOWM4ZWZlMDIwMDY4YzBjMWQ1IiwiYXVkIjoiZGljdGlvbmFyeSIsImlhdCI6MTYxMzMzMzgzNiwiZXhwIjoxNjEzMzQxMDM2LCJhenAiOiJpSzVCeFJLdUZoWmZkZE5NcUt4RVJ1OVRqZGc5NWdzTCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOndvcmRzIiwiZ2V0OmFuc3dlcnMiLCJnZXQ6cXVlc3Rpb25zIiwiZ2V0OndvcmRzIiwicGF0Y2g6d29yZHMiLCJwb3N0OmFuc3dlcnMiLCJwb3N0OndvcmRzIl19.V4NViBhTvfkhGx28F_HRdkX-ewFQuoXieZQfcTpbZ0sNo-_29xDF-MdLVDR9AYKBUTtPPHTGBDmu5HcpT0kX0YIB2bAYa1Q3gj1rn2p4ZarDJxOOW34nWzvPXJIATBdbx1WBzeWOY4_Q9XF9bjXLE_CttvCwRtrtna6hYGR1WrMRimuZ_yvGgKRl7fZFbo-Gvro_fkOuFcjyMYPZPWGKlSp6T6hNLzuysEIPtLu8Ax7K1mVMX9GdUuhbQTw2MgJqSic9VeLdYNL5BUxlv2u9c05hKV7JyxczunM7OqFLwbPOWQw4ZggUAMBiJ3dQ7CUs5L72RGkPbuAZgwsxgZZkDQ
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlozRjRBeDlsUWRuYms0ZV9fdDBrMSJ9.eyJpc3MiOiJodHRwczovL2hlbGxvZ2FnYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZmODkwOWM4ZWZlMDIwMDY4YzBjMWQ1IiwiYXVkIjoiZGljdGlvbmFyeSIsImlhdCI6MTYxMzM5MTUxMiwiZXhwIjoxNjEzMzk4NzEyLCJhenAiOiJpSzVCeFJLdUZoWmZkZE5NcUt4RVJ1OVRqZGc5NWdzTCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOndvcmRzIiwiZ2V0OmFuc3dlcnMiLCJnZXQ6cXVlc3Rpb25zIiwiZ2V0OndvcmRzIiwicGF0Y2g6d29yZHMiLCJwb3N0OmFuc3dlcnMiLCJwb3N0OndvcmRzIl19.Q-HDc9wKYQb3ToMDF85at47zuzwcdy2pUb9yWGtNVlhb_1nxpEx1WJwN6VFFq-__v4gf6BHE-67wd334HQGGJl3JVsTb3607ItlVlummM7uy-CovHgSRF71mVbXDgw4RanV_csKqoytfeaKEob4-i6X4BRvEWkII9yhm3IWqg6q5hw0KB9LoDb406z92erxVhGYqKFr8ZRGo76NXzZvCXDSrCaoCexDC0K_99SQGUM7BjYd_L2vr8gmp7r0-uUmmvvLTzVI-02L0y-GuvZQVo-hyRUWJqBQL6kIDYJFe0JCvUooJxRVGEstxFB5Z9dSWLlefDRJ8iZXhF7Au4MsEfA
 ```
 
 Admin:
 ```
-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlozRjRBeDlsUWRuYms0ZV9fdDBrMSJ9.eyJpc3MiOiJodHRwczovL2hlbGxvZ2FnYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDYzNDc1Nzg1MjAzNDQyOTMzNDMiLCJhdWQiOlsiZGljdGlvbmFyeSIsImh0dHBzOi8vaGVsbG9nYWdhLmV1LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MTMzMzQwNDQsImV4cCI6MTYxMzM0MTI0NCwiYXpwIjoiaUs1QnhSS3VGaFpmZGROTXFLeEVSdTlUamRnOTVnc0wiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOnVzZXJzIiwiZGVsZXRlOndvcmRzIiwiZ2V0OmFuc3dlcnMiLCJnZXQ6cXVlc3Rpb25zIiwiZ2V0OnVzZXJzIiwiZ2V0OndvcmRzIiwicGF0Y2g6d29yZHMiLCJwb3N0OmFuc3dlcnMiLCJwb3N0OndvcmRzIl19.NCYnYs0eaC__mNqKUwyiEv7e09VzNa0VXhhutFXMBuWVfEeyd0XqTmWRg2J2k60jlN53lI5-8Ix4R2pCo9f-MLDNHVNyE0K5z0UWGOO2vKWLpUQAuXNhdMkQKrji3E7AEGEKlr7_Es2A24HDqLX4HNbTMRfWZTRyIMS5auCO5Hu1LQQg29DjroKFVLrOapTBuxNLCgY-3cBar9jJ_ceUeRswYIiPVYjuJe7BbBYF2R4Pw6dIxF4WOo5bKug0vhNiziJiKxYc2A75had6_BLT5vGu-6ypaCd6kH7f6n3eByGrCVz05jCypNURXmnrTvJDx1p47zLQsPb9X-VNlFydOg
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlozRjRBeDlsUWRuYms0ZV9fdDBrMSJ9.eyJpc3MiOiJodHRwczovL2hlbGxvZ2FnYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDYzNDc1Nzg1MjAzNDQyOTMzNDMiLCJhdWQiOlsiZGljdGlvbmFyeSIsImh0dHBzOi8vaGVsbG9nYWdhLmV1LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MTMzOTE2MDYsImV4cCI6MTYxMzM5ODgwNiwiYXpwIjoiaUs1QnhSS3VGaFpmZGROTXFLeEVSdTlUamRnOTVnc0wiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOnVzZXJzIiwiZGVsZXRlOndvcmRzIiwiZ2V0OmFuc3dlcnMiLCJnZXQ6cXVlc3Rpb25zIiwiZ2V0OnVzZXJzIiwiZ2V0OndvcmRzIiwicGF0Y2g6d29yZHMiLCJwb3N0OmFuc3dlcnMiLCJwb3N0OndvcmRzIl19.WWkGjIEDs2bBLiylBklpUr0PhhuCXNY6WTskICKksFinXkvChI3_qRR1Mtvarnw0FGihT6mmb8PtbTRuVAWxlzuCF0pdP-lc0Ihz_6vF6-2qpeFYlgJMBtILKZdELwt9aYg-Qdc24TGuw0g-_siXYoX0SxxaBojYjsdLuseM0p2lLXiqGmLh0ongioV1NLMoH0nJ2S_n_AvvZ988r237LcLG1FdLUWrEsRGpZirzKESBT-pL-_9n52h7i1u9VeAcgVXMACqYZM8B9egzCEcf-VPGuQs7Su2DhBc4assARzmf_4BUap7ZMA-91tYoPt8TfmjpfPD3ubU-DqY-ujPsrg
 ```
 **NOTE**: The above token will expire in a very short time.
 
@@ -94,17 +98,17 @@ You can download and install the dependencies mentioned above using `pip install
 
   ```sh
   ├── README.md
-  ├── app.py *** the main driver of the app. Includes your SQLAlchemy models.
+  ├── app.py: the main driver of the app. Includes your SQLAlchemy models.
                     "python app.py" to run after installing dependences
-  ├── manage.py *** file to manage the database migration. Important for the database configuration in Heroku
-  ├── test_app.py *** file to test the API locally. 
-  ├── add_records.py *** python file to add data to the database.
-  ├── requirements.txt *** The dependencies we need to install with "pip3 install -r requirements.txt"
-  ├── setup.sh *** environment variables
+  ├── manage.py: file to manage the database migration. Important for the database configuration in Heroku
+  ├── test_app.py: file to test the API locally. 
+  ├── add_records.py: python file to add data to the database.
+  ├── requirements.txt:  The dependencies we need to install with "pip3 install -r requirements.txt"
+  ├── setup.bat: environment variables. If executed in Linux environment, use setup.sh. 
   ├── auth
-  │   ├── auth.py *** code to manage authorization 
+  │   ├── auth.py: code to manage authorization 
   │   └── __init__.py
-  └── migrations *** folder that contains the database migration. 
+  └── migrations: folder that contains the database migration. 
   ```
 
 Overall:
@@ -116,7 +120,7 @@ Overall:
 1. Understand the Project Structure (explained above) and where important files are located.
 2. Install all the dependencies according to the instructions before. 
 3. git clone this repo to your local folder using `https://github.com/hellogaga/FSD_capstone.git`
-4. Navigate to **model.py** and revise **local database setting** section with your own PostgreSQL username and password. 
+4. Navigate to **setup.bat** and revise **all environment varialbes** section with your own.
 5. Login to your PostgreSQL through `psql -U yourusername` and build a local database named **dict** through the following in the computer console `CREATE DATABASE dict;`
 6. Navigate to the local folder and run the following commands. They will initiate the required tables in the application. 
 ```sh
@@ -137,7 +141,7 @@ curl --request GET http://localhost:5000/words -H "Authorization: Bearer A_VERY_
 1. Login to your PostgreSQL through `psql -U yourusername` and build a test database named **dict_test** through the following in the computer console `CREATE DATABASE dict_test;`
 2. run the following code `python add_data.py dict_test` to add some pseudo data to the database.  
 3. please visit `auth0.com` and set up a new application as well new API. 
-4. navigate to `test_app.py` and replace the token variables.
+4. navigate to `setup.bat` and replace the token variables with your own.
 5. run `python test_app.py`
 
 ## Deploy to Heroku
